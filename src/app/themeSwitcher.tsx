@@ -6,21 +6,19 @@ import { MoonIcon } from "./MoonIcon";
 import { SunIcon } from "./SunIcon";
 import { useTheme } from "next-themes";
 
-export default function App() {
+export default function ThemeSwitcher() {
   const { theme, setTheme } = useTheme();
 
-  const handleThemeChange = (isSelected: boolean): void => {
-    setTheme(isSelected ? "dark" : "light");
+  const handleThemeChange = (newIsSelected: boolean) => {
+    setTheme(newIsSelected ? "dark" : "light");
   };
 
   return (
     <Switch
-      checked={theme === "dark"}
+      isSelected={theme === "dark"}
       size="lg"
       color="secondary"
-      onChange={(e: React.ChangeEvent<HTMLInputElement>) =>
-        handleThemeChange(e.target.checked)
-      }
+      onValueChange={handleThemeChange}
       thumbIcon={({ isSelected, className }) =>
         isSelected ? (
           <SunIcon className={className} />
@@ -28,6 +26,6 @@ export default function App() {
           <MoonIcon className={className} />
         )
       }
-    ></Switch>
+    />
   );
 }
