@@ -18,7 +18,7 @@ export default function TechStackCard() {
   ];
 
   return (
-    <div className="py-5 gap-8 grid grid-cols-3 sm:grid-cols-3">
+    <div className="py-4 m-4 gap-10 grid grid-cols-3 sm:grid-cols-3">
       {list.map((item, index) => (
         <div key={index} className="flex justify-center items-center">
           <Image

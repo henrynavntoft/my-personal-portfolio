@@ -42,9 +42,11 @@ export default function Home() {
 
         <h2 className="text-2xl">Resume</h2>
         <br />
-        <p>You can read more about me and my experience here...</p>
+        <p>Please open my resume to read more about me and my experiences.</p>
         <br />
-        <Button>Download Resume</Button>
+        <a href="/Resume_henry-navntoft.pdf" target="_blank">
+          <Button>Open Resume</Button>
+        </a>
 
         <Divider className="my-4" />
       </div>

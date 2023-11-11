@@ -13,29 +13,32 @@ import {
 export default function Header() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
 
-  const menuItems = ["Sandbox"];
+  const menuItems = [
+    { name: "Home", path: "/" },
+    { name: "Sandbox", path: "/sandbox" },
+    { name: "Contact", path: "/contact" },
+  ];
 
   return (
-    <Navbar className="" onMenuOpenChange={setIsMenuOpen}>
-      <NavbarContent justify="start">
+    <Navbar onMenuOpenChange={setIsMenuOpen}>
+      {/* <NavbarContent justify="start">
         <NavbarMenuToggle
           aria-label={isMenuOpen ? "Close menu" : "Open menu"}
         />
-      </NavbarContent>
+      </NavbarContent> */}
 
       <NavbarContent justify="end">
         <ThemeSwitcher />
       </NavbarContent>
-
       <NavbarMenu>
         {menuItems.map((item, index) => (
-          <NavbarMenuItem key={`${item}-${index}`}>
+          <NavbarMenuItem key={`${item.name}-${index}`} className="text-center">
             <Link
-              className="w-full flex justify-center items-center top-10 text-4xl"
-              href={`#${item}`}
+              className="w-full flex justify-center top-20 pt-10 items-center text-8xl"
+              href={item.path}
               color="foreground"
             >
-              {item}
+              {item.name}
             </Link>
           </NavbarMenuItem>
         ))}
