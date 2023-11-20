@@ -1,31 +1,52 @@
-import React from "react";
-import { Image } from "@nextui-org/react";
+"use client";
 
-export default function TechStackCard() {
-  const list = [
-    {
-      img: "/next.js.svg",
-      alt: "Next.js logo",
-    },
-    {
-      img: "/typescript.svg",
-      alt: "Next.js logo",
-    },
-    {
-      img: "/tailwind.svg",
-      alt: "Next.js logo",
-    },
-  ];
+import { useEffect, useState, useMemo } from "react";
+import { Progress } from "@nextui-org/react";
+
+export default function App() {
+  const skills = useMemo(
+    () => [
+      { name: "HTML", progress: 100 },
+      { name: "CSS", progress: 90 },
+      { name: "JavaScript", progress: 80 },
+      { name: "React", progress: 70 },
+      { name: "Tailwind CSS", progress: 90 },
+      { name: "TypeScript", progress: 50 },
+      { name: "Next.js", progress: 80 },
+      { name: "Python", progress: 15 },
+    ],
+    []
+  );
+  const [values, setValues] = useState(skills.map(() => 0));
+
+  useEffect(() => {
+    const intervals = skills.map((skill, index) => {
+      return setInterval(() => {
+        setValues((currentValues) => {
+          const newValues = [...currentValues];
+          if (newValues[index] < skill.progress) {
+            newValues[index] += 1;
+          }
+          return newValues;
+        });
+      }, 500 / skill.progress);
+    });
+
+    return () => intervals.forEach(clearInterval);
+  }, [skills]);
 
   return (
-    <div className="py-4 m-4 gap-10 grid grid-cols-3 sm:grid-cols-3">
-      {list.map((item, index) => (
-        <div key={index} className="flex justify-center items-center">
-          <Image
-            src={item.img}
-            alt={item.alt}
-            className="object-contain dark:invert"
-            style={{ width: "100%", maxWidth: "75px" }}
+    <div className="py-4 grid grid-cols-2 gap-4 justify-items-end">
+      {skills.map((skill, index) => (
+        <div key={skill.name} className="mb-4 w-full justify-self-start">
+          <div className="mb-1">{skill.name}</div>
+          <Progress
+            aria-label={`${skill.name} skill level`}
+            size="md"
+            value={values[index]}
+            color="secondary"
+            showValueLabel={true}
+            className="max-w-md"
           />
         </div>
       ))}
