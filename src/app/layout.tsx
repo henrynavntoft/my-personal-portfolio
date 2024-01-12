@@ -1,11 +1,9 @@
 import type { Metadata } from "next";
-import { Inter } from "next/font/google";
 import "./globals.css";
 import { Providers } from "./providers";
-import Footer from "./footer";
-import Header from "./header";
-
-const inter = Inter({ subsets: ["latin"] });
+import Footer from "./components/footer";
+import Header from "./components/header";
+import { SpeedInsights } from "@vercel/speed-insights/next";
 
 export const metadata: Metadata = {
   title: "Henry Navntoft | Personal Portfolio",
@@ -18,13 +16,14 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="en" className="dark">
-      <body className={inter.className}>
+    <html lang="en">
+      <body>
         <Providers>
-          <Header />
+          {/* <Header /> */}
           {children}
           <Footer />
         </Providers>
+        <SpeedInsights />
       </body>
     </html>
   );

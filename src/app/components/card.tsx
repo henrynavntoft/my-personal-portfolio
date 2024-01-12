@@ -14,7 +14,7 @@ export default function ProjectCard() {
     },
     {
       title: "JS Portfolio",
-      img: "/jsportfolio.webp",
+      img: "/jsport.png",
       link: "https://github.com/henrynavntoft/personal-website",
       desc: "This project showcases my foundational skills in HTML, CSS, and JavaScript, evident in my original portfolio website. It features a clean, responsive design, demonstrating my ability to build effective web interfaces using core web technologies..",
     },
