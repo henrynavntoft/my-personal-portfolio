@@ -8,8 +8,8 @@
 } */
 
 @font-face {
-  font-family: "Tanker-Regular";
-  src: url("/Tanker-Regular.otf") format("opentype");
+  font-family: "Satoshi-Bold";
+  src: url("/Satoshi-Bold.Otf") format("opentype");
   font-weight: normal;
   font-style: normal;
 }
@@ -26,5 +26,5 @@ html {
 }
 
 h1 {
-  font-family: "Tanker-Regular", sans-serif;
+  font-family: "Satoshi-Bold", sans-serif;
 }

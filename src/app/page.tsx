@@ -52,11 +52,6 @@ export default function Home() {
         <TechStackCard />
 
         <Divider className="my-8" />
-        <h2 className="text-2xl">Portfolio</h2>
-        <br />
-        <ProjectCard />
-
-        <Divider className="my-8" />
       </div>
     </>
   );
